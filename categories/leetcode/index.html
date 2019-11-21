@@ -137,6 +137,67 @@
 <div class="card">
     
     <div class="card-image">
+        <a href="/2019/11/22/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" class="image is-7by1">
+            <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="32.最长有效括号">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-21T17:26:42.685Z">2019-11-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a minute read (About 202 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/11/22/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/">32.最长有效括号</a>
+            
+        </h1>
+        <div class="content">
+            <p>原题地址：<a href="https://leetcode-cn.com/problems/longest-valid-parentheses/submissions/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-valid-parentheses/submissions/</a></p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9669wwlnzj30te0fawg0.jpg" alt="image-20191122012602211"></p>
+<h3 id="解法1-两次遍历"><a href="#解法1-两次遍历" class="headerlink" title="解法1: 两次遍历"></a>解法1: 两次遍历</h3><p>思路：第一次遍历标注符合规范的括号组，第二次筛选</p>
+<p>发现：if比三目运算符快一些</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">longestValidParentheses</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(!s.size())</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; k;</span><br><span class="line">        <span class="hljs-keyword">bool</span> flag[s.size()] = &#123;<span class="hljs-literal">false</span>&#125;;</span><br><span class="line">        <span class="hljs-keyword">int</span> p, max = <span class="hljs-number">0</span>, temp = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(s[i] == <span class="hljs-string">'('</span>)</span><br><span class="line">                k.push(i);</span><br><span class="line">            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(s[i] == <span class="hljs-string">')'</span> &amp;&amp; !k.empty())</span><br><span class="line">            &#123;</span><br><span class="line">                p = k.top();</span><br><span class="line">                flag[p] = flag[i] = <span class="hljs-literal">true</span>;</span><br><span class="line">                k.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(flag[i])</span><br><span class="line">            &#123;</span><br><span class="line">                ++temp;</span><br><span class="line">                <span class="hljs-keyword">if</span>(max &lt; temp)</span><br><span class="line">                    max = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">else</span></span><br><span class="line">                temp = <span class="hljs-number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="解法2-一遍遍历栈"><a href="#解法2-一遍遍历栈" class="headerlink" title="解法2: 一遍遍历栈"></a>解法2: 一遍遍历栈</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">longestValidParentheses</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(!s.size())</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; k;</span><br><span class="line">        <span class="hljs-keyword">int</span> max = <span class="hljs-number">0</span>;</span><br><span class="line">        k.push(<span class="hljs-number">-1</span>);</span><br><span class="line">      </span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span> (s[i] == <span class="hljs-string">'('</span>)</span><br><span class="line">                k.push(i);</span><br><span class="line">            <span class="hljs-keyword">else</span> </span><br><span class="line">            &#123;</span><br><span class="line">                k.pop();</span><br><span class="line">                <span class="hljs-keyword">if</span> (k.empty())</span><br><span class="line">                    k.push(i);</span><br><span class="line">                <span class="hljs-keyword">else</span> </span><br><span class="line">                    max = (max &gt; i - k.top()) ? max : (i - k.top());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
         <a href="/2019/11/21/31.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/" class="image is-7by1">
             <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="31.下一个排列">
         </a>
@@ -687,73 +748,25 @@
 
 
 
+
     
-<div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/11/05/5.%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/" class="image is-7by1">
-            <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="5.最长回文子串">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-05T07:21:40.797Z">2019-11-05</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 minutes read (About 438 words)
-                </span>
-                
-                
-            </div>
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/leetcode/page/0/">Previous</a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/11/05/5.%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2/">5.最长回文子串</a>
-            
-        </h1>
-        <div class="content">
-            <p>原题地址：<a href="https://leetcode-cn.com/problems/longest-palindromic-substring/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/</a></p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g8n8ic8npwj30v00ekab6.jpg" alt="image-20191105150053283"></p>
-<h3 id="犯的错误："><a href="#犯的错误：" class="headerlink" title="犯的错误："></a>犯的错误：</h3><ol>
-<li>忽略了<strong>最长</strong>的前提</li>
-</ol>
-<h3 id="解法1-暴力法"><a href="#解法1-暴力法" class="headerlink" title="解法1: 暴力法"></a>解法1: 暴力法</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-built_in">string</span> temp = <span class="hljs-string">""</span>;</span><br><span class="line">        <span class="hljs-built_in">string</span> res = <span class="hljs-string">""</span>;</span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i; j &lt; s.length(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                temp += s[j];</span><br><span class="line">                <span class="hljs-built_in">string</span> tempr = temp;</span><br><span class="line">                <span class="hljs-built_in">std</span>::reverse(tempr.begin(), tempr.end());</span><br><span class="line">                <span class="hljs-keyword">if</span>(temp == tempr)</span><br><span class="line">                    <span class="hljs-keyword">if</span>(res.length() &lt; temp.length())</span><br><span class="line">                        res = temp;</span><br><span class="line">            &#125;</span><br><span class="line">            temp = <span class="hljs-string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>会超时。</p>
-<h3 id="解法2-动态规划"><a href="#解法2-动态规划" class="headerlink" title="解法2: 动态规划"></a>解法2: 动态规划</h3><p>dp[i][j]: 从字符串第i个字符到第j个字符之间的字符串是否为回文子串</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span>(s.length() == <span class="hljs-number">0</span> || s.length() == <span class="hljs-number">1</span>)</span><br><span class="line">            <span class="hljs-keyword">return</span> s;</span><br><span class="line">        <span class="hljs-keyword">int</span> start = <span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">int</span> max = <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; dp(s.length(), <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;(s.length()));</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i][i] = <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-comment">//找出长度为2的回文子串</span></span><br><span class="line">            <span class="hljs-keyword">if</span>( (i + <span class="hljs-number">1</span> &lt; s.length() ) &amp;&amp; (s[i] == s[i+<span class="hljs-number">1</span>]) )</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i][i+<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;</span><br><span class="line">                max = <span class="hljs-number">2</span>;</span><br><span class="line">                start = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-comment">//从长度为3的回文子串开始找</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> l = <span class="hljs-number">3</span>; l &lt;= s.length(); ++l)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i + l - <span class="hljs-number">1</span> &lt; s.length(); ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="hljs-keyword">int</span> j = i + l - <span class="hljs-number">1</span>;</span><br><span class="line">                <span class="hljs-keyword">if</span>(s[i] == s[j] &amp;&amp; dp[i + <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>])</span><br><span class="line">                &#123;</span><br><span class="line">                    dp[i][j] = <span class="hljs-number">1</span>;</span><br><span class="line">                    start = i;</span><br><span class="line">                    max = l;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> s.substr(start, max);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="解法3：中心扩展法"><a href="#解法3：中心扩展法" class="headerlink" title="解法3：中心扩展法"></a>解法3：中心扩展法</h3><p>即把所有元素（两个元素）都尝试作为中心向外扩展，并记录最长回文子串的长度和起始位置。</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-built_in">string</span> <span class="hljs-title">longestPalindrome</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> len=s.size();</span><br><span class="line">        <span class="hljs-keyword">if</span>(len==<span class="hljs-number">0</span>||len==<span class="hljs-number">1</span>)</span><br><span class="line">            <span class="hljs-keyword">return</span> s;</span><br><span class="line">        <span class="hljs-keyword">int</span> start=<span class="hljs-number">0</span>;<span class="hljs-comment">//记录回文子串起始位置</span></span><br><span class="line">        <span class="hljs-keyword">int</span> end=<span class="hljs-number">0</span>;<span class="hljs-comment">//记录回文子串终止位置</span></span><br><span class="line">        <span class="hljs-keyword">int</span> mlen=<span class="hljs-number">0</span>;<span class="hljs-comment">//记录最大回文子串的长度</span></span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;len;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> len1=expendaroundcenter(s,i,i);<span class="hljs-comment">//一个元素为中心</span></span><br><span class="line">            <span class="hljs-keyword">int</span> len2=expendaroundcenter(s,i,i+<span class="hljs-number">1</span>);<span class="hljs-comment">//两个元素为中心</span></span><br><span class="line">            mlen=max(max(len1,len2),mlen);</span><br><span class="line">            <span class="hljs-keyword">if</span>(mlen&gt;end-start+<span class="hljs-number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                start=i-(mlen<span class="hljs-number">-1</span>)/<span class="hljs-number">2</span>;</span><br><span class="line">                end=i+mlen/<span class="hljs-number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> s.substr(start,mlen);</span><br><span class="line">        <span class="hljs-comment">//该函数的意思是获取从start开始长度为mlen长度的字符串</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="hljs-keyword">private</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">expendaroundcenter</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s,<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span></span><br><span class="line"><span class="hljs-function">    <span class="hljs-comment">//计算以left和right为中心的回文串长度</span></span></span><br><span class="line"><span class="hljs-function">    </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> L=left;</span><br><span class="line">        <span class="hljs-keyword">int</span> R=right;</span><br><span class="line">        <span class="hljs-keyword">while</span>(L&gt;=<span class="hljs-number">0</span> &amp;&amp; R&lt;s.length() &amp;&amp; s[R]==s[L])</span><br><span class="line">        &#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> R-L<span class="hljs-number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/categories/leetcode/page/2/">Next</a>
         </div>
-        
-        
-        
-    </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link is-current" href="/categories/leetcode/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/categories/leetcode/page/2/">2</a></li>
+            
+        </ul>
+    </nav>
 </div>
-
-
-
-
-
-
-
-
 </div>
                 
 
@@ -798,7 +811,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        13
+                        14
                     </p>
                 </div>
             </div>
@@ -818,7 +831,7 @@
                         Tags
                     </p>
                     <p class="title has-text-weight-normal">
-                        10
+                        12
                     </p>
                 </div>
             </div>
@@ -905,7 +918,7 @@
                 <span class="level-item">leetcode</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">10</span>
+                <span class="level-item tag">11</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/%E5%9B%BE/">
@@ -926,7 +939,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/C-11/" style="font-size: 10px;">C++11</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/%E5%8C%B9%E9%85%8D/" style="font-size: 15px;">匹配</a> <a href="/tags/%E5%90%88%E5%B9%B6/" style="font-size: 10px;">合并</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 20px;">字符串</a> <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" style="font-size: 15px;">排列组合</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 15px;">数组</a> <a href="/tags/%E7%A9%B7%E4%B8%BE/" style="font-size: 10px;">穷举</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 15px;">链表</a>
+        <a href="/tags/C-11/" style="font-size: 10px;">C++11</a> <a href="/tags/lambda/" style="font-size: 10px;">lambda</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 10px;">动态规划</a> <a href="/tags/%E5%8C%B9%E9%85%8D/" style="font-size: 16.67px;">匹配</a> <a href="/tags/%E5%90%88%E5%B9%B6/" style="font-size: 10px;">合并</a> <a href="/tags/%E5%9B%BE/" style="font-size: 10px;">图</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 20px;">字符串</a> <a href="/tags/%E6%8B%AC%E5%8F%B7/" style="font-size: 10px;">括号</a> <a href="/tags/%E6%8E%92%E5%88%97%E7%BB%84%E5%90%88/" style="font-size: 13.33px;">排列组合</a> <a href="/tags/%E6%95%B0%E7%BB%84/" style="font-size: 13.33px;">数组</a> <a href="/tags/%E7%A9%B7%E4%B8%BE/" style="font-size: 10px;">穷举</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 13.33px;">链表</a>
     </div>
 </div>
     
@@ -938,6 +951,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/22/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="32.最长有效括号">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-21T17:26:42.685Z">2019-11-22</time></div>
+                    <a href="/2019/11/22/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" class="title has-link-black-ter is-size-6 has-text-weight-normal">32.最长有效括号</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1015,25 +1047,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/11/07/22.%20%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="22.括号生成">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-07T09:42:09.049Z">2019-11-07</time></div>
-                    <a href="/2019/11/07/22.%20%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">22.括号生成</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1051,7 +1064,7 @@
                     <span class="level-item">November 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1095,9 +1108,16 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="tag">动态规划</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%8C%B9%E9%85%8D/">
                         <span class="tag">匹配</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1119,6 +1139,13 @@
                     <a class="tags has-addons" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
                         <span class="tag">字符串</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8B%AC%E5%8F%B7/">
+                        <span class="tag">括号</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -1174,6 +1201,25 @@
         
         <article class="media">
             
+            <a href="/2019/11/22/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="32.最长有效括号">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-21T17:26:42.685Z">2019-11-22</time></div>
+                    <a href="/2019/11/22/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/" class="title has-link-black-ter is-size-6 has-text-weight-normal">32.最长有效括号</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/11/21/%E5%9B%BE%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95ug5vu4dj30hs0bjjs7.jpg" alt="图算法分类">
@@ -1248,25 +1294,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/11/07/22.%20%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g94a76zcmej30e80e8q3r.jpg" alt="22.括号生成">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-07T09:42:09.049Z">2019-11-07</time></div>
-                    <a href="/2019/11/07/22.%20%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="title has-link-black-ter is-size-6 has-text-weight-normal">22.括号生成</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/leetcode/">leetcode</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1284,7 +1311,7 @@
                     <span class="level-item">November 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1328,9 +1355,16 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="tag">动态规划</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/%E5%8C%B9%E9%85%8D/">
                         <span class="tag">匹配</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1352,6 +1386,13 @@
                     <a class="tags has-addons" href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
                         <span class="tag">字符串</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/%E6%8B%AC%E5%8F%B7/">
+                        <span class="tag">括号</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
