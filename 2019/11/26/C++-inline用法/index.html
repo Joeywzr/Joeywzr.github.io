@@ -10,16 +10,16 @@
 <title>C++ inline用法 - Joey Wang&#39;s blog</title>
 
 
-    <meta name="description" content="原文链接：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;fnlingnzb-learner&#x2F;p&#x2F;6423917.html* 在 c&#x2F;c++ 中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了 inline 修饰符，表示为内联函数。 栈空间就是指放置程序的局部数据（也就是函数内数据）的内存空间。 在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出">
+    <meta name="description" content="原文链接：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;fnlingnzb-learner&#x2F;p&#x2F;6423917.html 在 c&#x2F;c++ 中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了 inline 修饰符，表示为内联函数。 栈空间就是指放置程序的局部数据（也就是函数内数据）的内存空间。 在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错">
 <meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ inline用法">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;26&#x2F;C++-inline%E7%94%A8%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="Joey Wang&#39;s blog">
-<meta property="og:description" content="原文链接：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;fnlingnzb-learner&#x2F;p&#x2F;6423917.html* 在 c&#x2F;c++ 中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了 inline 修饰符，表示为内联函数。 栈空间就是指放置程序的局部数据（也就是函数内数据）的内存空间。 在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出">
+<meta property="og:description" content="原文链接：https:&#x2F;&#x2F;www.cnblogs.com&#x2F;fnlingnzb-learner&#x2F;p&#x2F;6423917.html 在 c&#x2F;c++ 中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了 inline 修饰符，表示为内联函数。 栈空间就是指放置程序的局部数据（也就是函数内数据）的内存空间。 在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g94a1pllwnj30u00xqjt0.jpg">
-<meta property="og:updated_time" content="2019-11-26T07:59:49.421Z">
+<meta property="og:updated_time" content="2019-11-26T08:07:57.276Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g94a1pllwnj30u00xqjt0.jpg">
 
@@ -161,7 +161,7 @@
             
         </h1>
         <div class="content">
-            <p><strong>原文链接：</strong><a href="https://www.cnblogs.com/fnlingnzb-learner/p/6423917.html" target="_blank" rel="noopener">https://www.cnblogs.com/fnlingnzb-learner/p/6423917.html</a>*</p>
+            <p><strong>原文链接：</strong><a href="https://www.cnblogs.com/fnlingnzb-learner/p/6423917.html" target="_blank" rel="noopener">https://www.cnblogs.com/fnlingnzb-learner/p/6423917.html</a></p>
 <p>在 c/c++ 中，为了解决一些频繁调用的小函数大量消耗栈空间（栈内存）的问题，特别的引入了 <strong>inline</strong> 修饰符，表示为内联函数。</p>
 <p>栈空间就是指放置程序的局部数据（也就是函数内数据）的内存空间。</p>
 <p>在系统下，栈空间是有限的，假如频繁大量的使用就会造成因栈空间不足而导致程序出错的问题，如，函数的死循环递归调用的最终结果就是导致栈内存空间枯竭。</p>
