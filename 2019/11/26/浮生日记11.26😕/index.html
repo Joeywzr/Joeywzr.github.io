@@ -99,6 +99,9 @@
                 <a class="navbar-item"
                 href="/tags">Tags</a>
                 
+                <a class="navbar-item"
+                href="/wiki">Wiki</a>
+                
             </div>
             
             <div class="navbar-end">
@@ -188,7 +191,7 @@ function doDecrypt (pwd, onError) {
 	}
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1+/5eCFkYw2RSifFYq1zXchEI/zww2NfO4Z7oRT1sfM13t0xPNnQMRPxseRSeb2Q/wv3SWJj2Ku5NBEvLW+h0+xTfjWXMGbd2KJPxxPvKZ3lg0CBjwFTpQCXg5198Ypzee3xZbcTQI13HS0wnpFH+FOeDypqtG/RQBKORb95y2cpk9ZmlMluuPPGnirtwDUYWHoK+FBZiDU5pXKwOWn5capz899fM1FKR25JB7tP9I0aHDJAcitXjz65kYkV/p5QiuEEo6K4YSz6R5yg2EWAzWQKO19PRfRGCFM+KsnHM/uJ2JmenpXySJ6EED4iuyxVl3+s3tK+XXSM9qOUOPQagxt2cGj4k+w7GBEW83UrtOZxVlR6LV4u0vCioNUAUXlmdNLz6Yx8VQSySwzLxoG/4HwEHvH6ngSKrStDbhOcGEyPyA553ud/KneAk3Pm7U8brb2pSC8SfBdL9vMigf5Ay9WMq6iOLDFNGt08x78w6fQfqtaO5A0xKRYonT4hTh7E0cBlHIRsiGOHA==</div>
+<div id="enc_content" style="display:none">U2FsdGVkX1+2elxEj765ne64BBMU3P7/LluXSrcS9MtoBuwDbSKRA8JrvUCZEizqDhEBjgR8MWoP81C2klHDDyJbAmryxXgqbVOA4iZ9bRdDJfKQIwWlP9gKL0ueENp00H1XCA4awkO6vK2RexX7tefWQsOFn1UItTxDjh562MkIifU+XrKFE+0olnSnEhVrc0fjWm9b/Dwwxs4SG5y+682gnhSFHqjFD4qZLgi3OYGpkZYmhamF2epjo+X7ry07ok/MhMIaoeui7G9dck292zDVkG2FH0MKFsaKftqX0jT85rf9lRcsi+o8HE1RGGNZ82Xdg21W7+BVJ6uP9UhSqt3z0jQ/wiaRgJfnBAyafFs/APPOFdjNR6K9zI5nNKoODxf82XmmSQDfKASs83uhwCej+r9lLckPE0XCnvoLbaKsmdqS+GzfeHQzJEwy7cEwGlKxW7BU0nvl77Y3EvvOf1pSoDxTd9gVMxopNZddVwmeYpWB4DVS9qyzLvy3rFWgJVa7FRcUA60YOVrjwKDcmg==</div>
 <div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
