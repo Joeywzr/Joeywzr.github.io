@@ -535,6 +535,8 @@ Error message and password prompt
 
 <li>$:/view</li>
 
+<li>About the Theme</li>
+
 <li>Algorithms</li>
 
 <li>BN_inf.png</li>
@@ -609,7 +611,11 @@ Error message and password prompt
 
 <li>Interview Notes</li>
 
+<li>LaTEX symbols</li>
+
 <li>Learn PyTorch</li>
+
+<li>Linux Notes</li>
 
 <li>Merge Sort</li>
 
@@ -646,6 +652,8 @@ Error message and password prompt
 <li>Story River Setting</li>
 
 <li>TCP vs UDP</li>
+
+<li>Tips collections</li>
 
 <li>Useful Resources</li>
 
@@ -10053,8 +10061,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20190825110947548" modified="20191127025324747" title="$:/state/toc/Notes-C++ Notes-648855385">
 <pre>close</pre>
 </div>
-<div created="20191127024153887" modified="20191127025426518" title="$:/state/toc/Notes-Git Notes-648855385">
-<pre>close</pre>
+<div created="20191127024153887" modified="20191127025329186" title="$:/state/toc/Notes-Git Notes-648855385">
+<pre>open</pre>
 </div>
 <div created="20190905162442842" modified="20191127024156869" title="$:/state/toc/Notes-Golang Notes-648855385">
 <pre>close</pre>
@@ -10107,7 +10115,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20181121045520039" modified="20190625180534770" title="$:/state/toc/On-Campus Courses-Operating System-648855385">
 <pre>open</pre>
 </div>
-<div list="[[Interview Notes]] [[Git Notes]] [[C++ Notes]] Algorithms [[PyTorch Notes]] [[Useful Resources]]" title="$:/StoryList">
+<div list="" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191127024917629" modified="20191127024923119" title="$:/temp/advancedsearch">
@@ -11219,6 +11227,55 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20181112093233876" modified="20181112134023699" title="$:/view">
 <pre>classic</pre>
 </div>
+<div created="20181121035700259" modified="20181121035859410" tags="References" title="About the Theme">
+<pre>This is the demo site for my Material design-inspired theme for [[Tiddlywiki|https://tiddlywiki.com/]]
+
+&lt;hr&gt;
+
+!! Install
+
+Drag the following tag pill into your TW if you want to use it, or use the export button: 
+
+&lt;$tiddler tiddler=&quot;material-base.bundle&quot;&gt;
+&lt;span class=&quot;tc-tag-label tc-btn-invisible&quot; style=&quot;cursor: move;&quot;&gt;
+&lt;$draggable filter={{!!filter}}&gt;
+Material Theme
+&lt;/$draggable&gt;
+&lt;/span&gt;
+{{||$:/plugins/wikilabs/bundler/ui/Buttons/export-bundle-filter}}
+&lt;/$tiddler&gt;
+
+Drag the following  tag pill into your TW if you want to use it + [[the icons|Make it more Material]] + [[swipe/tap capabilities|Make it swipable / tappable]], or use the export button: 
+
+&lt;$tiddler tiddler=&quot;material-all.bundle&quot;&gt;
+&lt;span class=&quot;tc-tag-label tc-btn-invisible&quot; style=&quot;cursor: move;&quot;&gt;
+&lt;$draggable filter={{!!filter}}&gt;
+Material Theme + icons + ~HammerWidgets
+&lt;/$draggable&gt;
+&lt;/span&gt;
+{{||$:/plugins/wikilabs/bundler/ui/Buttons/export-bundle-filter}}
+&lt;/$tiddler&gt;
+
+[[Click here|KeeBoordPlugin]] to see how this theme could work with BTC's ~KeeBoord plugin ( &lt;kbd&gt;ctrl&lt;/kbd&gt; + &lt;kbd&gt;space&lt;/kbd&gt; to open searchbar)
+
+&lt;hr&gt;
+
+!! Demo palettes
+
+Please take a look at the built-in color palettes:
+
+{{$:/themes/jd/Material/Tweaks/Colors}}
+
+See ''Control Panel'' &gt; ''Appearance'' &gt; ''Material Tweaks'' for other available options
+
+&lt;hr&gt;
+
+Shoutout and huge thanks to ~BurningTreeC for his [[HammerWidgets|http://hammerwidgets.tiddlyspot.com/]] ! 
+
+!!My other TW Things
+
+http://j.d.tiddlyspot.com/</pre>
+</div>
 <div created="20190815064312211" modified="20191024042131430" tags="Notes" title="Algorithms">
 <pre>&lt;div class = &quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Algorithms' sort[title]&gt;&gt;
@@ -11995,8 +12052,29 @@ void insertion_sort(vector&lt;int&gt; &amp;numbers) {
 &lt;&lt;toc-selective-expandable 'Interview Notes' sort[title]&gt;&gt;
 &lt;/div&gt;</pre>
 </div>
+<div created="20181112181646062" modified="20181122113423704" tags="References" title="LaTEX symbols" type="text/x-markdown">
+<pre>## 字母上的标注
+* **^号**：使用`\hat` 或者 `\widehat`，效果分别为：$\hat{abc}, \widehat{abc}$。
+* **上方横线**：使用`\overline`，效果：$\overline{m(t)}$。
+* **上方波浪线**：使用`\tilde`或者`\widetilde`，效果 $\widetilde{abc}, \tilde{abc}$
+* **上方加点**：
+   * **一个点**：使用`\dot`，效果：$a\dot{b}c$
+   * **两个点**：使用`ddot`，效果：$a\ddot{b}c$
+
+## 外部链接
+
+关于**点**的使用：[dots](https://tex.stackexchange.com/questions/389238/is-there-a-black-dot-symbol-that-i-can-use)</pre>
+</div>
 <div created="20181120092659509" modified="20190717154732958" tags="task done" title="Learn PyTorch">
 <pre>Prepare for next Summer</pre>
+</div>
+<div created="20181120115846132" modified="20191111061016466" tags="References" title="Linux Notes">
+<pre>* Check your cuda version： `cat /usr/local/cuda/version.txt`
+
+* Check your cudnn version: `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2 `
+
+* Close a process when knowing the port number: run `lsof -n -i4TCP:[port-number]`to get PID, The PID is the second field in the output. Then, run `kill -9 [PID]`to kill this process.
+</pre>
 </div>
 <div created="20190825010704927" modified="20190825010754909" tags="Sorting" title="Merge Sort">
 <pre>```cpp
@@ -12490,8 +12568,58 @@ TCP/IP协议集包括：
 !! UDP
 用户数据报协议。面向无连接，不保证可靠交付，面向报文，可以单播、多播、广播。</pre>
 </div>
-<div created="20181112080407369" modified="20191127025536697" tags="References" title="Useful Resources" type="text/x-markdown">
-<pre></pre>
+<div created="20191111034911935" modified="20191111035459054" tags="References" title="Tips collections">
+<pre>* switch to python 3.6.5 on Mac with Homebrew:
+```shell
+brew unlink python
+brew install --ignore-dependencies replace-this-with-your-link
+brew switch python 3.6.5_1</pre>
+</div>
+<div created="20181112080407369" modified="20181201125126332" tags="References" title="Useful Resources" type="text/x-markdown">
+<pre>## Plugins
+[Markdown Plugin for TW5](https://tiddlywiki.com/plugins/tiddlywiki/markdown/)
+
+## Weibo
+
+* [Automate university life with Python](https://codeburst.io/how-i-automated-the-boring-university-stuff-with-python-f2935b10d2ce
+)
+
+* [VS Code with Jupyter workflow improvement](https://towardsdatascience.com/how-to-improve-your-workflow-with-vs-code-and-jupyter-notebook-f96777f8f1bd
+)
+
+* [Pytorch Tutorial on Youtube](https://www.youtube.com/playlist?list=PLZbbT5o_s2xrfNyHZsM6ufI0iZENK9xgG&amp;app=desktop)
+
+* [PRML Solutions](https://github.com/GoldenCheese/PRML-Solution-Manual)
+
+* [Awesome AI Residency](https://github.com/dangkhoasdc/awesome-ai-residency)
+
+* [Note-taking Tools](https://dev.to/brpaz/how-do-i-organize-my-knowledge-as-a-software-engineer-4387?utm_source=wanqu.co&amp;utm_campaign=Wanqu+Daily&amp;utm_medium=website)
+
+* [Foundations of the Theory of Probability](https://archive.org/details/foundationsofthe00kolm/page/n3)
+
+* [Computer Science A-Z Resources](https://github.com/dipakkr/A-to-Z-Resources-for-Students)
+
+* **CMU NN for NLP** [homepage](http://phontron.com/class/nn4nlp2018/description.html) [Youtube](https://www.youtube.com/playlist?list=PL8PYTP1V4I8Ba7-rY4FoB4-jfuJ7VDKEE&amp;app=desktop)
+
+* [gensim tutorials](https://www.machinelearningplus.com/nlp/gensim-tutorial/)
+
+* [Awesome-Spider](https://github.com/facert/awesome-spider)
+
+* [Reinforcement Learning](http://incompleteideas.net/book/the-book-2nd.html)
+
+* [the Way to GO](https://github.com/Unknwon/the-way-to-go_ZH_CN)
+
+* [GAN tutorial](https://medium.com/ai-society/gans-from-scratch-1-a-deep-introduction-with-code-in-pytorch-and-tensorflow-cb03cdcdba0f)
+
+* [Note by LaTeX](https://github.com/wklchris/Note-by-LaTeX)
+
+* [Math for ML](https://mml-book.github.io/)
+
+* [the Art of Writing Science](https://onlinelibrary.wiley.com/doi/full/10.1002/pro.514)
+
+## Reddit
+
+* [Ultimate Guide to Web Scraping with Python](https://www.learndatasci.com/tutorials/ultimate-guide-web-scraping-w-python-requests-and-beautifulsoup/)</pre>
 </div>
 <div created="20190917075421002" modified="20190917075457874" tags="MOMO" title="Week 01: Face tracking via Dynamic Rigidity Prior">
 <pre></pre>
