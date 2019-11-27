@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    43 minutes read (About 6388 words)
+                    43 minutes read (About 6389 words)
                 </span>
                 
                 
@@ -173,101 +173,16 @@
         </h1>
         <div class="content">
             <p>转载：<a href="https://zhuanlan.zhihu.com/p/64984300" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/64984300</a></p>
-<h3 id="路径搜索（Pathfinding-and-Search）"><a href="#路径搜索（Pathfinding-and-Search）" class="headerlink" title="路径搜索（Pathfinding and Search）"></a>路径搜索（Pathfinding and Search）</h3><p>图搜索算法（Pathfinding and Search Algorithms）探索一个图，用于一般发现或显式搜索。这些算法通过从图中找到很多路径，但并不期望这些路径是计算最优的（例如最短的，或者拥有最小的权重和）。图搜索算法包括广度优先搜索和深度优先搜索，它们是遍历图的基础，并且通常是许多其他类型分析的第一步。</p>
-<p>路径搜索（Pathfinding）算法建立在图搜索算法的基础上，并探索节点之间的路径。这些路径从一个节点开始，遍历关系，直到到达目的地。路径搜索算法识别最优路径，用于物流规划，最低成本呼叫或者叫IP路由问题，以及游戏模拟等。</p>
-<p>下图是路径搜索类算法的分类：</p>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-1754229/fai4dkh765.jpeg?imageView2/2/w/1620" alt="img"></p>
-<h4 id="DFS-amp-BFS"><a href="#DFS-amp-BFS" class="headerlink" title="DFS&amp;BFS"></a>DFS&amp;BFS</h4><p>图算法中最基础的两个遍历算法：广度优先搜索（Breadth First Search，简称 BFS）和深度优先搜索（Depth First Search，简称 DFS）。BFS 从选定的节点出发，优先访问所有一度关系的节点之后再继续访问二度关系节点，以此类推。DFS 从选定的节点出发，选择任一邻居之后，尽可能的沿着边遍历下去，知道不能前进之后再回溯。</p>
-<h4 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h4><p>最短路径（Shortest Paths）算法计算给定的两个节点之间最短（最小权重和）的路径。算法能够实时地交互和给出结果，可以给出关系传播的度数（degree），可以快速给出两点之间的最短距离，可以计算两点之间成本最低的路线等等。例如：</p>
-<ul>
-<li>导航：谷歌、百度、高德地图均提供了导航功能，它们就使用了最短路径算法（或者非常接近的变种）；</li>
-<li>社交网络关系：当我们在 LinkedIn、人人（暴露年龄了）等社交平台上查看某人的简介时，平台会展示你们之间有多少共同好友，并列出你们之间的关系。</li>
-</ul>
-<p>最常见的最短路径算法来自于 1956 年的 Edsger Dijkstra。Dijkstra 的算法首先选择与起点相连的最小权重的节点，也就是 “最临近的” 节点，然后比较 起点到第二临近的节点的权重 与 最临近节点的下一个最临近节点的累计权重和 从而决定下一步该如何行走。可以想象，算法记录的累计权重和 如同地理的 “等高线” 一样，在图上以 “波” 的形式传播，直到到达目的地节点。</p>
-<p>最短路径算法有两个常用的变种：A （可以念作 A Star）algorithm和 Yen’s K-Shortest Paths。A algorithm 通过提供的额外信息，优化算法下一步探索的方向。Yen’s K-Shortest Paths 不但给出最短路径结果，同时给出了最好的 K 条路径。</p>
-<p>所有节点对最短路径（All Pairs Shortest Path）也是一个常用的最短路径算法，计算所有节点对的最短路径。相比较一个一个调用单个的最短路径算法，All Pairs Shortest Path 算法会更快。算法并行计算多个节点的信息，并且这些信息在计算中可以被重用。</p>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-1754229/51blz2w07k.jpeg?imageView2/2/w/1620" alt="img"></p>
-<p>All Pairs Shortest Path 算法通常用于，当最短路径受限或者变成了非最优时，如何寻找替代线路。其实算法非常常用：</p>
-<ul>
-<li>优化城市设施的位置和货物的分配：例如确定运输网格中不同路段上预期的交通负荷，例如快递线路设计，从而保证运输对突发事件的应对；</li>
-<li>作为数据中心设计算法的一部分：查找具有最大带宽和最小延迟的网络。</li>
-</ul>
-<h4 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h4><p>最小生成树（Minimum Spanning Tree）算法从一个给定的节点开始，查找其所有可到达的节点，以及将节点与最小可能权重连接在一起，行成的一组关系。它以最小的权重从访问过的节点遍历到下一个未访问的节点，避免了循环。</p>
-<p>最常用的最小生成树算法来自于 1957 年的 Prim 算法。Prim 算法与Dijkstra 的最短路径类似，所不同的是， Prim 算法每次寻找最小权重访问到下一个节点，而不是累计权重和。并且，Prim 算法允许边的权重为负。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r30treyj30u0066aam.jpg" alt="img"></p>
-<p>上图是最小生成树算法的步骤分解，算法最终用最小的权重将图进行了遍历，并且在遍历的过程中，不产生环。</p>
-<p>算法可以用于优化连接系统（如水管和电路设计）的路径。它还用于近似一些计算时间未知的问题，如旅行商问题。虽然该算法不一定总能找到绝对最优解，但它使得复杂度极高和计算密集度极大的分析变得更加可能。例如：</p>
-<ul>
-<li>旅行计划：尽可能降低探索一个国家的旅行成本；</li>
-<li>追踪流感传播的历史：有人使用最小生成树模型对丙型肝炎病毒感染的医院暴发进行分子流行病学调查</li>
-</ul>
-<h4 id="随机游走"><a href="#随机游走" class="headerlink" title="随机游走"></a>随机游走</h4><p>随机游走（Random Walk）算法从图上获得一条随机的路径。随机游走算法从一个节点开始，随机沿着一条边正向或者反向寻找到它的邻居，以此类推，直到达到设置的路径长度。这个过程有点像是一个醉汉在城市闲逛，他可能知道自己大致要去哪儿，但是路径可能极其“迂回”，毕竟，他也无法控制自己~</p>
-<p>随机游走算法一般用于随机生成一组相关的节点数据，作为后续数据处理或者其他算法使用。例如：</p>
-<ul>
-<li>作为 node2vec 和 graph2vec 算法的一部分，这些算法可以用于节点向量的生成，从而作为后续深度学习模型的输入；这一点对于了解 NLP （自然语言处理）的朋友来说并不难理解，词是句子的一部分，我们可以通过词的组合（语料）来训练词向量。那么，我们同样可以通过节点的组合（Random Walk）来训练节点向量。这些向量可以表征词或者节点的含义，并且能够做数值计算。这一块的应用很有意思，我们会找机会来详细介绍；</li>
-<li>作为 Walktrap 和 Infomap 算法的一部分，用于社群发现。如果随机游走总是返回同一组节点，表明这些节点可能在同一个社群；</li>
-<li>其他机器学习模型的一部分，用于随机产生相关联的节点数据。</li>
-</ul>
-<h3 id="中心性计算（Centrality-Computation）"><a href="#中心性计算（Centrality-Computation）" class="headerlink" title="中心性计算（Centrality Computation）"></a>中心性计算（Centrality Computation）</h3><p>中心性算法（Centrality Algorithms）用于识别图中特定节点的角色及其对网络的影响。中心性算法能够帮助我们识别最重要的节点，帮助我们了解组动态，例如可信度、可访问性、事物传播的速度以及组与组之间的连接。尽管这些算法中有许多是为社会网络分析而发明的，但它们已经在许多行业和领域中得到了应用。</p>
-<p>下图罗列了我们所有需要了解的中心性算法指标。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r472ws0j30u00ezwfi.jpg" alt="img"></p>
-<h4 id="Degree-Centrality"><a href="#Degree-Centrality" class="headerlink" title="Degree Centrality"></a>Degree Centrality</h4><p>Degree Centrality （度中心性，以度作为标准的中心性指标）可能是整篇博文最简单的 “算法” 了。Degree 统计了一个节点直接相连的边的数量，包括出度和入度。Degree 可以简单理解为一个节点的访问机会的大小。例如，在一个社交网络中，一个拥有更多 degree 的人（节点）更容易与人发生直接接触，也更容易获得流感。</p>
-<p>一个网络的平均度（average degree），是边的数量除以节点的数量。当然，平均度很容易被一些具有极大度的节点 “带跑偏” （skewed）。所以，度的分布（degree distribution）可能是表征网络特征的更好指标。</p>
-<p>如果你希望通过出度入度来评价节点的中心性，就可以使用 degree centrality。度中心性在关注直接连通时具有很好的效果。应用场景例如，区分在线拍卖的合法用户和欺诈者，欺诈者由于尝尝人为太高拍卖价格，拥有更高的加权中心性（weighted centrality）。</p>
-<h4 id="Closeness-Centrality"><a href="#Closeness-Centrality" class="headerlink" title="Closeness Centrality"></a>Closeness Centrality</h4><p>Closeness Centrality（紧密性中心性）是一种检测能够通过子图有效传播信息的节点的方法。紧密性中心性计量一个节点到所有其他节点的紧密性（距离的倒数），一个拥有高紧密性中心性的节点拥有着到所有其他节点的距离最小值。</p>
-<p>对于一个节点来说，紧密性中心性是节点到所有其他节点的最小距离和的倒数：<br>$$<br>\begin{equation}<br>C(u)=\frac{1}{\sum_{v=1}^{n-1} d(u, v)}<br>\end{equation}<br>$$<br>其中 u 是我们要计算紧密性中心性的节点，n 是网络中总的节点数，d(u,v) 代表节点 u 与节点 v 的最短路径距离。更常用的公式是归一化之后的中心性，即计算节点到其他节点的平均距离的倒数，你知道如何修改上面的公式吗？对了，将分子的 1 变成 n-1 即可。</p>
-<p>理解公式我们就会发现，如果图是一个非连通图，那么我们将无法计算紧密性中心性。那么针对非连通图，调和中心性（Harmonic Centrality）被提了出来（当然它也有归一化的版本，你猜这次n-1应该加在哪里？）：<br>$$<br>\begin{equation}<br>H(u)=\sum_{v=1}^{n-1} \frac{1}{d(u, v)}<br>\end{equation}<br>$$<br>Wasserman and Faust 提出过另一种计算紧密性中心性的公式，专门用于包含多个子图并且子图间不相连接的非连通图：<br>$$<br>\begin{equation}<br>C_{W F}(u)=\frac{n-1}{N-1}\left(\frac{n-1}{\sum_{v=1}^{n-1} d(u, v)}\right)<br>\end{equation}<br>$$<br>其中，N 是图中总的节点数量，n 是一个部件（component）中的节点数量。</p>
-<p>当我们希望关注网络中传播信息最快的节点，我们就可以使用紧密性中心性。</p>
-<h4 id="Betweenness-Centrality"><a href="#Betweenness-Centrality" class="headerlink" title="Betweenness Centrality"></a>Betweenness Centrality</h4><p>中介中心性（Betweenness Centrality）是一种检测节点对图中信息或资源流的影响程度的方法。它通常用于寻找连接图的两个部分的桥梁节点。因为很多时候，一个系统最重要的 “齿轮” 不是那些状态最好的，而是一些看似不起眼的 “媒介”，它们掌握着资源或者信息的流动性。</p>
-<p>中间中心性算法首先计算连接图中每对节点之间的最短（最小权重和）路径。每个节点都会根据这些通过节点的最短路径的数量得到一个分数。节点所在的路径越短，其得分越高。计算公式：<br>$$<br>\begin{equation}<br>B(u)=\sum_{s \neq u \neq t} \frac{p(u)}{p}<br>\end{equation}<br>$$<br>其中，p 是节点 s 与 t 之间最短路径的数量，p(u) 是其中经过节点 u 的数量。下图给出了对于节点 D 的计算过程：</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r7hw0vrj30u009i74q.jpg" alt="img"></p>
-<p>当然，在一张大图上计算中介中心性是十分昂贵的。所以我们需要更快的，成本更小的，并且精度大致相同的算法来计算，例如 Randomized-Approximate Brandes。我们不会对这个算法继续深入，感兴趣的话，可以去了解一下，算法如何通过随机（Random）和度的筛选（Degree）达到近似的效果。</p>
-<p>中介中心性在现实的网络中有广泛的应用，我们使用它来发现瓶颈、控制点和漏洞。例如，识别不同组织的影响者，他们往往是各个组织的媒介，例如寻找电网的关键点，提高整体鲁棒性。</p>
-<h4 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h4><p>在所有的中心性算法中，PageRank 是最著名的一个。它测量节点传递影响的能力。PageRank 不但节点的直接影响，也考虑 “邻居” 的影响力。例如，一个节点拥有一个有影响力的 “邻居”，可能比拥有很多不太有影响力的 “邻居” 更有影响力。PageRank 统计到节点的传入关系的数量和质量，从而决定该节点的重要性。</p>
-<p>PageRank 算法以谷歌联合创始人拉里·佩奇的名字命名，他创建了这个算法来对谷歌搜索结果中的网站进行排名。不同的网页之间相互引用，网页作为节点，引用关系作为边，就可以组成一个网络。被更多网页引用的网页，应该拥有更高的权重；被更高权重引用的网页，也应该拥有更高权重。原始公式：<br>$$<br>\begin{equation}<br>P R(u)=(1-d)+d\left(\frac{P R(T 1)}{C(T 1)}+\ldots+\frac{P R(T n)}{C(T n)}\right)<br>\end{equation}<br>$$<br>其中，u 是我们想要计算 PageRank 的网页，T1 到 Tn 是引用的网页。d 被称为阻尼系数（damping factor），代表一个用户继续点击网页的概率，一般被设置为 0.85，范围 0~1。C(T) 是节点 T 的出度。</p>
-<p>从理解上来说，PageRank 算法假设一个用户在访问网页时，用户可能随机输入一个网址，也可能通过一些网页的链接访问到别的网页。那么阻尼系数代表用户对当前网页感到无聊，随机选择一个链接访问到新的网页的概率。那么 PageRank 的数值代表这个网页通过其他网页链接过来（入度，in-degree）的可能性。那你能如何解释 PageRank 方程中的 1-d 呢？实际，1-d 代表不通过链接访问，而是随机输入网址访问到网页的概率。</p>
-<p>PageRank 算法采用迭代方式计算，直到结果收敛或者达到迭代上限。每次迭代都会分两步更新节点权重和边的权重，详细如下图：</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r8kwu59j30u016640m.jpg" alt="img"></p>
-<p>当然，上图的计算并没有考虑阻尼系数，那为什么一定要阻尼系数呢？除了我们定义的链接访问概率，有没有别的意义呢？从上图的过程中，我们可能会发现一个问题，如果一个节点（或者一组节点），只有边进入，却没有边出去，会怎么样呢？按照上图的迭代，节点会不断抢占 PageRank 分数。这个现象被称为 Rank Sink，如下图：</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r8o6lhij30u00cj0tc.jpg" alt="img"></p>
-<p>解决 Rank Sink 的方法有两个。第一个，假设这些节点有隐形的边连向了所有的节点，遍历这些隐形的边的过程称为 teleportation。第二个，使用阻尼系数，如果我们设置 d 等于 0.85，我们仍然有 0.15 的概率从这些节点再跳跃出去。</p>
-<p>尽管阻尼系数的建议值为 0.85，我们仍然可以根据实际需要进行修改。调低阻尼系数，意味着访问网页时，更不可能不断点击链接访问下去，而是更多地随机访问别的网页。那么一个网页的 PageRank 分数会更多地分给他的直接下游网页，而不是下游的下游网页。</p>
-<p>PageRank 算法已经不仅限于网页排名。例如：</p>
-<ul>
-<li>寻找最重要的基因：我们要寻找的基因可能不是与生物功能联系最多的基因，而是与最重要功能有紧密联系的基因；</li>
-<li>who to follow service at twitter：Twitter使用个性化的 PageRank 算法（Personalized PageRank，简称 PPR）向用户推荐他们可能希望关注的其他帐户。该算法通过兴趣和其他的关系连接，为用户展示感兴趣的其他用户；</li>
-<li>交通流量预测：使用 PageRank 算法计算人们在每条街道上停车或结束行程的可能性；</li>
-<li>反欺诈：医疗或者保险行业存在异常或者欺诈行为，PageRank 可以作为后续机器学习算法的输入。</li>
-</ul>
-<p>###社群发现（Community Detection）</p>
-<p>社群的形成在各种类型的网络中都很常见。识别社群对于评估群体行为或突发事件至关重要。对于一个社群来说，内部节点与内部节点的关系（边）比社群外部节点的关系更多。识别这些社群可以揭示节点的分群，找到孤立的社群，发现整体网络结构关系。社群发现算法（Community Detection Algorithms）有助于发现社群中群体行为或者偏好，寻找嵌套关系，或者成为其他分析的前序步骤。社群发现算法也常用于网络可视化。</p>
-<p>下图是社群发现算法的分类。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95r8ybng4j30u0102n02.jpg" alt="img"></p>
-<h4 id="Measuring-Algorithm"><a href="#Measuring-Algorithm" class="headerlink" title="Measuring Algorithm"></a>Measuring Algorithm</h4><p><strong>三角计数（Triangle Count）和聚类系数（Clustering Coefficient）</strong>经常被一起使用。三角计数计算图中由节点组成的三角形的数量，要求任意两个节点间有边（关系）连接。聚类系数算法的目标是测量一个组的聚类紧密程度。该算法计算网络中三角形的数量，与可能的关系的比率。聚类系数为 1 表示这个组内任意两个节点之间有边相连。</p>
-<p>有两种聚类系数：局部聚类系数（Local Clustering Coefficient）和全局聚类系数（Global Clustering Coefficient）。</p>
-<p>局部聚类系数计算一个节点的邻居之间的紧密程度，计算时需要三角计数。计算公式：<br>$$<br>\begin{equation}<br>C C(u)=\frac{2 R_{u}}{k_{u}\left(k_{u}-1\right)}<br>\end{equation}<br>$$<br>其中，u 代表我们需要计算聚类系数的节点，R(u) 代表经过节点 u 和它的邻居的三角形个数，k(u) 代表节点 u的度。下图是三三角计数聚类系数计算示意图：</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95rackcfmj30u00a6dgm.jpg" alt="img"></p>
-<p>全局聚类系数是局部聚类系数的归一化求和。</p>
-<p>当需要计算一个组的稳定性或者聚类系数时，我们可以使用三角计数。三角计数在社交网络分析中有广泛的应用，通航被用来检测社区。聚类系数可以快速评估特定组或整个网络的内聚性。这些算法可以共同用于特定网络结构的寻找。例如，探索网页的主题结构，基于网页之间的相互联系，检测拥有共同主题的 “网页社群”。</p>
-<h4 id="Components-Algorithm"><a href="#Components-Algorithm" class="headerlink" title="Components Algorithm"></a>Components Algorithm</h4><p><strong>强关联部件（Strongly Connected Components，简称 SCC）</strong>算法寻找有向图内的一组一组节点，每组节点可以通过关系 互相 访问。在 “Community Detection Algorithms” 的图中，我们可以发现，每组节点内部不需要直接相连，只要通过路径访问即可。</p>
-<p>关联部件（Connected Components）算法，不同于 SCC，组内的节点对只需通过一个方向访问即可。</p>
-<p>关联类算法作为图分析的早期算法，用以了解图的结构，或确定可能需要独立调查的紧密集群十分有效。对于推荐引擎等应用程序，也可以用来描述组中的类似行为等等。许多时候，算法被用于查找集群并将其折叠成单个节点，以便进一步进行集群间分析。对于我们来说，先运行以下关联类算法查看图是否连通，是一个很好的习惯。</p>
-<h4 id="Label-Propagation-Algorithm"><a href="#Label-Propagation-Algorithm" class="headerlink" title="Label Propagation Algorithm"></a>Label Propagation Algorithm</h4><p><strong>标签传播算法（Label Propagation Algorithm，简称 LPA）</strong>是一个在图中快速发现社群的算法。在 LPA 算法中，节点的标签完全由它的直接邻居决定。算法非常适合于半监督学习，你可以使用已有标签的节点来种子化传播进程。</p>
-<p>LPA 是一个较新的算法，由 Raghavan 等人于 2007 年提出。我们可以很形象地理解算法的传播过程，当标签在紧密联系的区域，传播非常快，但到了稀疏连接的区域，传播速度就会下降。当出现一个节点属于多个社群时，算法会使用该节点邻居的标签与权重，决定最终的标签。传播结束后，拥有同样标签的节点被视为在同一群组中。</p>
-<p>下图展示了算法的两个变种：Push 和 Pull。其中 Pull 算法更为典型，并且可以很好地并行计算：</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95raiykbqj30u00vc0vx.jpg" alt="img"></p>
-<p>我们不再继续深入，看完上图，你应该已经理解了算法的大概过程。其实，做过图像处理的人很容易明白，所谓的标签传播算法，不过是图像分割算法的变种，Push 算法是区域生长法（Region Growing）的简化版，而 Pull 更像是分割和合并（divide-and-merge，也有人称 split-merge）算法。确实，图像（image）的像素和图（graph）的节点是十分类似的。</p>
-<h3 id="Louvain-Modularity-Algorithm"><a href="#Louvain-Modularity-Algorithm" class="headerlink" title="Louvain Modularity Algorithm"></a>Louvain Modularity Algorithm</h3><p><strong>Louvain Modularity 算法</strong>在给节点分配社群是，会比较社群的密度，而不仅仅是比较节点与社群的紧密程度。算法通过查看节点与社群内关系的密度与平均关系密度的比较，来量化地决定一个节点是否属于社群。算法不但可以发现社群，更可以给出不同尺度不同规模的社群层次，对于理解不同粒度界别的网络结构有极大的帮助。</p>
-<p>算法在 2008 年被提出以后，迅速成为了最快的模块化算法之一。算法的细节很多，我们无法一一覆盖，下图给出了一个粗略的步骤，帮助我们理解算法如何能够多尺度地构建社群：</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g95rala4v3j30u00tcq4n.jpg" alt="img"></p>
-<p>Louvain Modularity 算法非常适合庞大网络的社群发现，算法采用启发式方式从而能够克服传统 Modularity 类算法的局限。算法应用：</p>
-<ul>
-<li>检测网络攻击:该算可以应用于大规模网络安全领域中的快速社群发现。一旦这些社群被发现，就可以用来预防网络攻击；</li>
-<li>主题建模：从 Twitter 和 YouTube 等在线社交平台中提取主题，基于文档中共同出现的术语，作为主题建模过程的一部分。</li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/21/%E5%9B%BE%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>

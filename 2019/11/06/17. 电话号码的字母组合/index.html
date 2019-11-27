@@ -10,16 +10,16 @@
 <title>17.电话号码的字母组合 - Joey Wang&#39;s blog</title>
 
 
-    <meta name="description" content="题目地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;letter-combinations-of-a-phone-number&#x2F;submissions&#x2F;  解法1:思路：递归 python: 1234567891011121314151617181920212223242526class Solution:    def letterCombinations(self, d">
+    <meta name="description" content="题目地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;letter-combinations-of-a-phone-number&#x2F;submissions&#x2F;">
 <meta name="keywords" content="排列组合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="17.电话号码的字母组合">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;17.%20%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88&#x2F;index.html">
 <meta property="og:site_name" content="Joey Wang&#39;s blog">
-<meta property="og:description" content="题目地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;letter-combinations-of-a-phone-number&#x2F;submissions&#x2F;  解法1:思路：递归 python: 1234567891011121314151617181920212223242526class Solution:    def letterCombinations(self, d">
+<meta property="og:description" content="题目地址：https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;letter-combinations-of-a-phone-number&#x2F;submissions&#x2F;">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g94a76zcmej30e80e8q3r.jpg">
-<meta property="og:updated_time" content="2019-11-20T02:17:38.669Z">
+<meta property="og:updated_time" content="2019-11-27T03:12:03.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;large&#x2F;006y8mN6ly1g94a76zcmej30e80e8q3r.jpg">
 
@@ -151,7 +151,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 277 words)
+                    2 minutes read (About 278 words)
                 </span>
                 
                 
@@ -166,6 +166,8 @@
         <div class="content">
             <p>题目地址：<a href="https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/submissions/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/submissions/</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g949v2e6yxj30ve0m87a2.jpg" alt="image-20191106172019623"></p>
+<a id="more"></a>
+
 <h3 id="解法1"><a href="#解法1" class="headerlink" title="解法1:"></a>解法1:</h3><p>思路：递归</p>
 <p><code>python</code>:</p>
 <figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">letterCombinations</span><span class="hljs-params">(self, digits)</span>:</span></span><br><span class="line">        <span class="hljs-string">"""</span></span><br><span class="line"><span class="hljs-string">        :type digits: str</span></span><br><span class="line"><span class="hljs-string">        :rtype: List[str]</span></span><br><span class="line"><span class="hljs-string">        """</span></span><br><span class="line">        phone = &#123;<span class="hljs-string">'2'</span>: <span class="hljs-string">'abc'</span>,</span><br><span class="line">                 <span class="hljs-string">'3'</span>: <span class="hljs-string">'def'</span>,</span><br><span class="line">                 <span class="hljs-string">'4'</span>: <span class="hljs-string">'ghi'</span>,</span><br><span class="line">                 <span class="hljs-string">'5'</span>: <span class="hljs-string">'jkl'</span>,</span><br><span class="line">                 <span class="hljs-string">'6'</span>: <span class="hljs-string">'mno'</span>,</span><br><span class="line">                 <span class="hljs-string">'7'</span>: <span class="hljs-string">'pqrs'</span>,</span><br><span class="line">                 <span class="hljs-string">'8'</span>: <span class="hljs-string">'tuv'</span>,</span><br><span class="line">                 <span class="hljs-string">'9'</span>: <span class="hljs-string">'wxyz'</span>&#125;</span><br><span class="line">                </span><br><span class="line">        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(combination, next_digits)</span>:</span></span><br><span class="line">            <span class="hljs-keyword">if</span> len(next_digits) == <span class="hljs-number">0</span>:</span><br><span class="line">                output.append(combination)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> phone[next_digits[<span class="hljs-number">0</span>]]:</span><br><span class="line">                    backtrack(combination + letter, next_digits[<span class="hljs-number">1</span>:])</span><br><span class="line">                    </span><br><span class="line">        output = []</span><br><span class="line">        <span class="hljs-keyword">if</span> digits:</span><br><span class="line">            backtrack(<span class="hljs-string">""</span>, digits)</span><br><span class="line">        <span class="hljs-keyword">return</span> output</span><br></pre></td></tr></table></figure>

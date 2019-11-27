@@ -158,7 +158,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 157 words)
+                    a minute read (About 158 words)
                 </span>
                 
                 
@@ -173,18 +173,16 @@
         <div class="content">
             <p>原题地址：<a href="https://leetcode-cn.com/problems/next-permutation/submissions/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/next-permutation/submissions/</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g9501rojj7j30v80a4jsz.jpg" alt="image-20191121010502457"></p>
-<p>###解法1: 一遍扫描</p>
-<p>思路如图</p>
-<p><img src="https://pic.leetcode-cn.com/1df4ae7eb275ba4ab944521f99c84d782d17df804d5c15e249881bafcf106173-file_1555696082944" alt="Next Permutation"></p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">nextPermutation</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> i = nums.size() - <span class="hljs-number">2</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span> (i &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[i + <span class="hljs-number">1</span>] &lt;= nums[i]) </span><br><span class="line">            i--;</span><br><span class="line">        <span class="hljs-keyword">if</span> (i &gt;= <span class="hljs-number">0</span>) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">int</span> j = nums.size() - <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[j] &lt;= nums[i]) </span><br><span class="line">                j--;</span><br><span class="line">            swap(nums, i, j);</span><br><span class="line">        &#125;</span><br><span class="line">        reverse(nums, i + <span class="hljs-number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reverse</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> start)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> i = start, j = nums.size() - <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span> (i &lt; j) </span><br><span class="line">        &#123;</span><br><span class="line">            swap(nums, i, j);</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">swap</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> temp = nums[i];</span><br><span class="line">        nums[i] = nums[j];</span><br><span class="line">        nums[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="解法2-STL"><a href="#解法2-STL" class="headerlink" title="解法2: STL"></a>解法2: STL</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">nextPermutation</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        next_permutation(nums.begin(),nums.end());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/21/31.%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%8E%92%E5%88%97/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -220,7 +218,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 188 words)
+                    a minute read (About 189 words)
                 </span>
                 
                 
@@ -235,16 +233,16 @@
         <div class="content">
             <p>原题地址：<a href="https://leetcode-cn.com/problems/container-with-most-water/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/container-with-most-water/</a></p>
 <p><img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g949uvjcglj30u010n7bg.jpg" alt="image-20191106160831517"></p>
-<h3 id="解法1-暴力"><a href="#解法1-暴力" class="headerlink" title="解法1: 暴力"></a>解法1: 暴力</h3><figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> max = <span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">int</span> temp = <span class="hljs-number">0</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(height.size() &lt;= <span class="hljs-number">1</span>)</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; height.size(); ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; height.size(); ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                temp = (height[i] &lt; height[j] ? height[i] : height[j]) * (j - i);</span><br><span class="line">                max = temp &gt; max ? temp : max;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> max;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="解法2-双指针法"><a href="#解法2-双指针法" class="headerlink" title="解法2: 双指针法"></a>解法2: 双指针法</h3><p>思路：两个指针分别指向数组两头，每次都移动值较小的指针，只有这样才可能弥补底边变短带来的面积减小。<strong>注意：容器大小由较短的边决定</strong></p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span></span><br><span class="line"><span class="hljs-keyword">public</span>:</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">int</span> maxarea = <span class="hljs-number">0</span>, l = <span class="hljs-number">0</span>, r = height.size() - <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">while</span> (l &lt; r)</span><br><span class="line">        &#123;</span><br><span class="line">            maxarea = max(maxarea, min(height[l], height[r]) * (r - l));</span><br><span class="line">            <span class="hljs-keyword">if</span> (height[l] &lt; height[r])</span><br><span class="line">                l++;</span><br><span class="line">            <span class="hljs-keyword">else</span></span><br><span class="line">                r--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> maxarea;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/06/11.%20%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>

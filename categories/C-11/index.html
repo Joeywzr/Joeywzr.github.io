@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 minutes read (About 526 words)
+                    4 minutes read (About 527 words)
                 </span>
                 
                 
@@ -173,28 +173,16 @@
         </h1>
         <div class="content">
             <p>其他lambda介绍link：<a href="https://www.devbean.net/2012/05/cpp11-lambda/" target="_blank" rel="noopener">https://www.devbean.net/2012/05/cpp11-lambda/</a></p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>　　C++11提供了对匿名函数的支持,称为Lambda函数(也叫Lambda表达式). Lambda表达式具体形式如下:</p>
-<p>　　　<strong>[capture](parameters)-&gt;return-type{body}</strong></p>
-<p>　　如果没有参数,空的圆括号()可以省略.返回值也可以省略,如果函数体只由一条return语句组成或返回类型为void的话.形如:</p>
-<p>  　　  <strong>[capture](parameters){body}</strong></p>
-<p>　　下面举了几个Lambda函数的例子: 　　　　</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[](<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y) &#123; <span class="hljs-keyword">return</span> x + y; &#125; <span class="hljs-comment">// 隐式返回类型</span></span><br><span class="line">[](<span class="hljs-keyword">int</span>&amp; x) &#123; ++x; &#125;   <span class="hljs-comment">// 没有return语句 -&gt; lambda 函数的返回类型是'void'</span></span><br><span class="line">[]() &#123; ++global_x; &#125;  <span class="hljs-comment">// 没有参数,仅访问某个全局变量</span></span><br><span class="line">[]&#123; ++global_x; &#125;     <span class="hljs-comment">// 与上一个相同,省略了()</span></span><br></pre></td></tr></table></figure>
-
-<p>　　可以像下面这样显示指定返回类型: </p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[](<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> y) -&gt; <span class="hljs-keyword">int</span> &#123; <span class="hljs-keyword">int</span> z = x + y; <span class="hljs-keyword">return</span> z; &#125;</span><br></pre></td></tr></table></figure>
-
-<p>　　在这个例子中创建了一个临时变量z来存储中间值. 和普通函数一样,这个中间值不会保存到下次调用. 什么也不返回的Lambda函数可以省略返回类型, 而不需要使用 -&gt; void 形式.<br>　　Lambda函数可以引用在它之外声明的变量. 这些变量的集合叫做一个<strong>闭包</strong>. 闭包被定义在Lambda表达式声明中的方括号[]内. 这个机制允许这些变量被按值或按引用捕获.下面这些例子就是: </p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[]        //未定义变量.试图在Lambda内使用任何外部变量都是错误的.</span><br><span class="line">[x, &amp;y]   //x 按值捕获, y 按引用捕获.</span><br><span class="line">[&amp;]       //用到的任何外部变量都隐式按引用捕获</span><br><span class="line">[=]       //用到的任何外部变量都隐式按值捕获</span><br><span class="line">[&amp;, x]    //x显式地按值捕获. 其它变量按引用捕获</span><br><span class="line">[=, &amp;z]   //z按引用捕获. 其它变量按值捕获</span><br></pre></td></tr></table></figure>
-
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p>遍历一个vector时，传统：</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;</span><br><span class="line">    v.push_back(<span class="hljs-number">1</span>);</span><br><span class="line">    v.push_back(<span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-comment">//...</span></span><br><span class="line">    <span class="hljs-keyword">for</span> ( <span class="hljs-keyword">auto</span> itr = v.begin(), end = v.end(); itr != end; itr++ )  </span><br><span class="line">    	<span class="hljs-built_in">cout</span> &lt;&lt; *itr;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Lambda:</p>
-<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;</span><br><span class="line">    v.push_back(<span class="hljs-number">1</span>);</span><br><span class="line">    v.push_back(<span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-comment">//...</span></span><br><span class="line">    for_each(v.begin(), v.end(), [](<span class="hljs-keyword">int</span> val) &#123;</span><br><span class="line">        <span class="hljs-built_in">cout</span> &lt;&lt; val;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/11/11/C++11%E6%96%B0%E7%89%B9%E6%80%A7%E2%80%94%E2%80%94%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0(lambda)/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
