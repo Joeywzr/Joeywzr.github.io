@@ -657,8 +657,6 @@ Error message and password prompt
 
 <li>为什么析构函数最好是虚函数？</li>
 
-<li>本地关联仓库步骤</li>
-
 <li>进程 vs 线程</li>
 
 <li>进程间通信的几种方式</li>
@@ -693,8 +691,8 @@ Error message and password prompt
 <div created="20181112064804214" modified="20181112064804214" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-journal">
 <pre>show</pre>
 </div>
-<div created="20181121050849563" modified="20191127032119875" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler">
-<pre>hide</pre>
+<div created="20181121050849563" modified="20191127023735229" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/new-tiddler">
+<pre>show</pre>
 </div>
 <div created="20190812033041424" modified="20190812033041424" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/refresh">
 <pre>show</pre>
@@ -10010,7 +10008,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20181112064753738" modified="20190811232219189" title="$:/state/tab/sidebar--1835078512">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
-<div created="20181121035933985" modified="20191127032122191" title="$:/state/tab/sidebar-1845994331">
+<div created="20181121035933985" modified="20191127025419235" title="$:/state/tab/sidebar-1845994331">
 <pre>Contents</pre>
 </div>
 <div created="20191024040429751" modified="20191024040430537" title="$:/state/toc/Algorithms-Sorting--850898673">
@@ -10043,8 +10041,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20190718125155392" modified="20191127023057979" title="$:/state/toc/Lab-PSU Research-648855385">
 <pre>close</pre>
 </div>
-<div created="20190905080535485" modified="20191127032103115" title="$:/state/toc/Notes-Algorithms-1637712383">
-<pre>close</pre>
+<div created="20190905080535485" modified="20190905080535485" title="$:/state/toc/Notes-Algorithms-1637712383">
+<pre>open</pre>
 </div>
 <div created="20190826161412896" modified="20191127025328425" title="$:/state/toc/Notes-Algorithms-648855385">
 <pre>close</pre>
@@ -10052,7 +10050,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20190815064746648" modified="20190815064747450" title="$:/state/toc/Notes-C++ Notes-1637712383">
 <pre>close</pre>
 </div>
-<div created="20190825110947548" modified="20191127075817001" title="$:/state/toc/Notes-C++ Notes-648855385">
+<div created="20190825110947548" modified="20191127025324747" title="$:/state/toc/Notes-C++ Notes-648855385">
 <pre>close</pre>
 </div>
 <div created="20191127024153887" modified="20191127025426518" title="$:/state/toc/Notes-Git Notes-648855385">
@@ -10061,8 +10059,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20190905162442842" modified="20191127024156869" title="$:/state/toc/Notes-Golang Notes-648855385">
 <pre>close</pre>
 </div>
-<div created="20190905073107610" modified="20191127032102217" title="$:/state/toc/Notes-Interview Notes-1637712383">
-<pre>close</pre>
+<div created="20190905073107610" modified="20190905073107610" title="$:/state/toc/Notes-Interview Notes-1637712383">
+<pre>open</pre>
 </div>
 <div created="20190829112712171" modified="20191127025118878" title="$:/state/toc/Notes-Interview Notes-648855385">
 <pre>close</pre>
@@ -10109,7 +10107,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20181121045520039" modified="20190625180534770" title="$:/state/toc/On-Campus Courses-Operating System-648855385">
 <pre>open</pre>
 </div>
-<div list="[[Git Notes]]" title="$:/StoryList">
+<div list="[[Interview Notes]] [[Git Notes]] [[C++ Notes]] Algorithms [[PyTorch Notes]] [[Useful Resources]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191127024917629" modified="20191127024923119" title="$:/temp/advancedsearch">
@@ -11809,7 +11807,7 @@ Before you start storing important information in ~TiddlyWiki it is vital to mak
 See the [[control panel|$:/ControlPanel]] for more options.
 </pre>
 </div>
-<div created="20191024040345605" modified="20191127074752979" tags="Notes" title="Git Notes">
+<div created="20191024040345605" modified="20191024042127409" tags="Notes" title="Git Notes">
 <pre>&lt;div class = &quot;tc-table-of-contents&quot;&gt;
 &lt;&lt;toc-selective-expandable 'Git Notes' sort[title]&gt;&gt;
 &lt;/div&gt;</pre>
@@ -12506,23 +12504,8 @@ In practice, I used only the distance matrix as the similarity matrix. But I am 
 <div created="20181121040303953" modified="20190717154725201" title="Welcome to My Personal Notebook!">
 <pre>Glad to see you here, please check my [[Contents]] for navigation. </pre>
 </div>
-<div created="20190905170348762" modified="20191127064202922" tags="[[C++ Notes]]" title="为什么析构函数最好是虚函数？">
-<pre>编译器总是根据类型来调用类成员函数。但是一个派生类的指针可以安全地转化为一个基类的指针。这样删除一个基类的指针的时候，C++不管这个指针指向一个基类对象还是一个派生类的对象，调用的都是基类的析构函数而不是派生类的。如果你依赖于派生类的析构函数的代码来释放资源，而没有重载析构函数，那么会有资源泄漏。
-
-例子：https://blog.csdn.net/fuchao1/article/details/90731989</pre>
-</div>
-<div created="20191127074757459" modified="20191127075019836" tags="[[Git Notes]]" title="本地关联仓库步骤" type="text/x-markdown">
-<pre>1、`git init `
-
-2、`git add README.md `
-
-3、`git add .`#不但可以跟单一文件，还可以跟通配符，更可以跟目录。一个点就把当前目录下所有未追踪的文件全部add了，注意空格
-
-4、`git commit -m “注释”` #把文件提交到仓库
-
-5、`git remote add origin git@github.com:heimu24/blog-backup.git` #本地关联远程仓库
-
-6、`git push -u origin master` #把本地库的所有内容推送到远程库上（第一次需要加-u，后面就不用加了）</pre>
+<div created="20190905170348762" modified="20190905175637323" tags="[[C++ Notes]]" title="为什么析构函数最好是虚函数？">
+<pre>编译器总是根据类型来调用类成员函数。但是一个派生类的指针可以安全地转化为一个基类的指针。这样删除一个基类的指针的时候，C++不管这个指针指向一个基类对象还是一个派生类的对象，调用的都是基类的析构函数而不是派生类的。如果你依赖于派生类的析构函数的代码来释放资源，而没有重载析构函数，那么会有资源泄漏。</pre>
 </div>
 <div created="20190827063859879" modified="20190829112739402" tags="[[Interview Notes]]" title="进程 vs 线程">
 <pre>主要差别是它们是''不同的操作系统资源管理方式''。进程有独立的地址空间，而线程只是一个进程中的不同执行路径。
