@@ -7,13 +7,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Categories - Joey Wang&#39;s blog</title>
+<title>Category: Database - Joey Wang&#39;s blog</title>
 
 
-    <meta name="keywords" content="匹配,字符串,数组,排列组合,链表,合并,穷举,括号,动态规划,C++11,lambda,C++,Neo4j,Database,浮生日记,图">
-<meta property="og:type" content="website">
+    <meta property="og:type" content="website">
 <meta property="og:title" content="Joey Wang&#39;s blog">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;Database&#x2F;index.html">
 <meta property="og:site_name" content="Joey Wang&#39;s blog">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
@@ -90,7 +89,7 @@
                 <a class="navbar-item"
                 href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/categories">Categories</a>
                 
                 <a class="navbar-item"
@@ -125,67 +124,87 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                Categories
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/C/">
-            <span class="level-start">
-                <span class="level-item">C++</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/C-11/">
-            <span class="level-start">
-                <span class="level-item">C++11</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Database/">
-            <span class="level-start">
-                <span class="level-item">Database</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/leetcode/">
-            <span class="level-start">
-                <span class="level-item">leetcode</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">11</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E5%9B%BE/">
-            <span class="level-start">
-                <span class="level-item">图</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/%E6%B5%AE%E7%94%9F%E6%97%A5%E8%AE%B0/">
-            <span class="level-start">
-                <span class="level-item">浮生日记</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/categories">Categories</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">Database</a></li>
+        </ul>
+        </nav>
     </div>
-</div></div>
+</div>
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/2019/12/03/Neo4j/" class="image is-7by1">
+            <img class="thumbnail" src="https://tva1.sinaimg.cn/large/006tNbRwly1g9jbx6nxd8j30v40g80u7.jpg" alt="初学Neo4j">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-12-03T02:34:09.000Z">2019-12-03</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Database/">Database</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a minute read (About 153 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/12/03/Neo4j/">初学Neo4j</a>
+            
+        </h1>
+        <div class="content">
+            <p>Neo4j是一个</p>
+<ul>
+<li>开源</li>
+<li>无Schema (<a href="https://www.biaodianfu.com/database-schema.html?utm_source=tuicool&utm_medium=referral" target="_blank" rel="noopener">数据库中Schema（模式）概念的理解</a>)</li>
+<li>无SQL</li>
+</ul>
+<p>的图形数据库。</p>
+<h3 id="数据模型"><a href="#数据模型" class="headerlink" title="数据模型"></a>数据模型</h3><p>属性图模型规则</p>
+<ul>
+<li>表示节点，关系和属性中的数据</li>
+<li><strong>节点和关系都包含属性</strong></li>
+<li>关系连接节点</li>
+<li>属性是键值对</li>
+<li>节点用圆圈表示，关系用方向键表示。</li>
+<li><strong>关系具有方向</strong>：单向和双向。</li>
+<li>每个关系包含“开始节点”或“从节点”和“到节点”或“结束节点”</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
                 
 
 
